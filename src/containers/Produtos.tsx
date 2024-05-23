@@ -7,12 +7,12 @@ import { RootReducer } from '../store'
 import { useGetProdutosQuery } from '../service/api'
 
 const ProdutosComponent = () => {
-  const itens = useSelector((state: RootReducer) => state.carrinho.itens)
+  const itensFav = useSelector((state: RootReducer) => state.favoritar.itens)
   const { data: produtos, isLoading } = useGetProdutosQuery()
 
   const produtoEstaNosFavoritos = (produto: ProdutoType) => {
     const produtoId = produto.id
-    const IdsDosFavoritos = itens.map((f) => f.id)
+    const IdsDosFavoritos = itensFav.map((f) => f.id)
 
     return IdsDosFavoritos.includes(produtoId)
   }

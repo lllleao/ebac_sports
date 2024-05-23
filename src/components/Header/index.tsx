@@ -7,6 +7,7 @@ import { RootReducer } from '../../store'
 
 const Header = () => {
   const itens = useSelector((state: RootReducer) => state.carrinho.itens)
+  const itensFav = useSelector((state: RootReducer) => state.favoritar.itens)
 
   const valorTotal = itens.reduce((acc, item) => {
     acc += item.preco
@@ -17,7 +18,7 @@ const Header = () => {
     <S.Header>
       <h1>EBAC Sports</h1>
       <div>
-        <span>{itens.length} favoritos</span>
+        <span>{itensFav.length} favoritos</span>
         <img src={cesta} />
         <span>
           {itens.length} itens, valor total: {paraReal(valorTotal)}

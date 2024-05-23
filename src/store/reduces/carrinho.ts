@@ -19,21 +19,12 @@ const carrinhoSlice = createSlice({
       if (state.itens.find((p) => p.id === produto.id)) {
         alert('Item já adicionado')
       } else {
-        state.itens.push(produto)
-        // state.itens = [...state.itens, produto]
-      }
-    },
-    favoritar: (state, action: PayloadAction<Produto>) => {
-      const favorito = action.payload
-
-      if (state.itens.find((p) => p.id === favorito.id)) {
-        state.itens = state.itens.filter((p) => p.id !== favorito.id)
-      } else {
-        state.itens.push(favorito)
+        // state.itens.push(produto)
+        state.itens = [...state.itens, produto]
       }
     }
   }
 })
 
-export const { adicionar, favoritar } = carrinhoSlice.actions
+export const { adicionar } = carrinhoSlice.actions
 export default carrinhoSlice.reducer
